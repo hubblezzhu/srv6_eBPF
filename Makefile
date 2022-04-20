@@ -1,4 +1,4 @@
-CURRENT_DIR := $(shell dirname $(abspath $(lastword $(MAKEFILE_LSIT))))
+CURRENT_DIR := $(shell dirname $(abspath $(lastword $(MAKEFILE_LIST))))
 
 CC = gcc
 RM = rm

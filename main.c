@@ -37,12 +37,12 @@ int exec_cmd(char *cmd)
 
 void load_srv6_ebpf()
 {
-    return 0;
+    return;
 }
 
 void unload_srv6_ebpf()
 {
-    return 0;
+    return;
 }
 
 

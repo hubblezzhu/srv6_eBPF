@@ -1,0 +1,6 @@
+
+# object file 
+*.o
+
+# bin 
+srv6manager
