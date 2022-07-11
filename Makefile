@@ -15,7 +15,7 @@ LLVM_FLAGS := -march=bpf -mcpu=probe
 BIN_TARGET = $(CURRENT_DIR)/srv6manager
 BIN_SRC_FILES := $(CURRENT_DIR)/main.c
 
-DT4_SRC := $(CURRENT_DIR)/srv6_dt4.c
+DT4_SRC := $(CURRENT_DIR)/srv6_dt6.c
 DT4_OBJ ?= $(DT4_SRC:%.c=%.o)
 
 .PHONY: all

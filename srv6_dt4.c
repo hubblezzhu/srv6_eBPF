@@ -395,26 +395,26 @@ int __pop_egr(struct __sk_buff *skb)
 
 // Inspect if the Egress TLV and flag have been removed, if the tag is correct,
 // then apply a End.T action to reach the last segment
-SEC("inspect_t")
-int __inspect_t(struct __sk_buff *skb)
+SEC("dt6")
+int __dt6(struct __sk_buff *skb)
 {
 	struct ip6_srh_t *srh = get_srh(skb);
-	int table = 117;
+	int table = 123;
 	int err;
 
 	if (srh == NULL)
 		return BPF_DROP;
 
-	if (srh->flags != 0)
-		return BPF_DROP;
+	// if (srh->flags != 0)
+	// 	return BPF_DROP;
 
-	if (srh->tag != bpf_htons(2442))
-		return BPF_DROP;
+	// if (srh->tag != bpf_htons(2442))
+	// 	return BPF_DROP;
 
-	if (srh->hdrlen != 8) // 4 segments
-		return BPF_DROP;
+	// if (srh->hdrlen != 8) // 4 segments
+	// 	return BPF_DROP;
 
-	err = bpf_lwt_seg6_action(skb, SEG6_LOCAL_ACTION_END_T,
+	err = bpf_lwt_seg6_action(skb, SEG6_LOCAL_ACTION_END_DT6,
 				  (void *)&table, sizeof(table));
 
 	if (err)
